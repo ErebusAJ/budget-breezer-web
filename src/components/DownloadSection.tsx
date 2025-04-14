@@ -11,7 +11,7 @@ const DownloadSection = () => {
         <div className="absolute bottom-1/4 -right-10 w-60 h-60 rounded-full border-2 border-white"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border-2 border-white"></div>
       </div>
-      
+
       <div className="section-container relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -20,7 +20,7 @@ const DownloadSection = () => {
           <p className="text-lg md:text-xl opacity-90 mb-10">
             Download Budget Breezer today and start managing your money with confidence and ease.
           </p>
-          
+
           <div className="flex flex-col md:flex-row justify-center gap-5 mb-12">
             {/* Google Play Button */}
             <Button className="bg-white text-brand-teal hover:bg-gray-100 flex items-center justify-center gap-3 py-6 rounded-xl">
@@ -32,7 +32,7 @@ const DownloadSection = () => {
                 <div className="text-xl font-semibold">Google Play</div>
               </div>
             </Button>
-            
+
             {/* App Store Button (Coming Soon) */}
             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 flex items-center justify-center gap-3 py-6 rounded-xl cursor-not-allowed opacity-70">
               <div>
@@ -43,24 +43,27 @@ const DownloadSection = () => {
                 <div className="text-xl font-semibold">App Store</div>
               </div>
             </Button>
-            
+
             {/* Direct APK Download */}
-            <Button className="bg-white/20 hover:bg-white/30 text-white border border-white/40 flex items-center justify-center gap-3 py-6 rounded-xl">
-              <Download className="h-6 w-6" />
-              <div className="text-left">
-                <div className="text-xs">DOWNLOAD</div>
-                <div className="text-xl font-semibold">APK File</div>
-              </div>
+            <Button asChild className="bg-white/20 hover:bg-white/30 text-white border border-white/40 flex items-center justify-center gap-3 py-6 rounded-xl">
+              <a href="/assets/budget-breezer.apk" download>
+                <Download className="h-6 w-6" />
+                <div className="text-left">
+                  <div className="text-xs">DOWNLOAD</div>
+                  <div className="text-xl font-semibold">APK File</div>
+                </div>
+              </a>
             </Button>
+
           </div>
-          
+
           {/* Trust elements */}
           <div className="flex flex-col sm:flex-row justify-center gap-8 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <Download className="h-5 w-5" />
               </div>
-              <span>5K+ Downloads</span>
+              <span>100+ Downloads</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
