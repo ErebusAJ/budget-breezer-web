@@ -8,7 +8,7 @@ const screenshots = [
   {
     title: "Dashboard Overview",
     description: "Get a complete view of your expenses and balances at a glance",
-    image: "/app-dashboard.png",
+    image: "/assets/screenshots/dashboard.jpg",
     features: [
       "Intuitive user interface",
       "Easy navigation between features",
@@ -16,19 +16,9 @@ const screenshots = [
     ]
   },
   {
-    title: "Split Expenses",
-    description: "Easily split bills among friends, roommates or travel groups",
-    image: "/app-split.png",
-    features: [
-      "Equal or custom splits",
-      "Track who paid what",
-      "Settle debts easily"
-    ]
-  },
-  {
     title: "Expense Analytics",
     description: "Visualize your spending patterns with detailed charts",
-    image: "/app-analytics.png",
+    image: "/assets/screenshots/analytics.jpg",
     features: [
       "Monthly spending breakdown",
       "Category-wise analysis",
@@ -36,9 +26,29 @@ const screenshots = [
     ]
   },
   {
+    title: "Expense Groups",
+    description: "Organize your expenses by creating dedicated groups for trips, events, or households.",
+    image: "/assets/screenshots/group.jpg",
+    features: [
+      "Create and manage multiple groups",
+      "Invite members to join",
+      "View group-wise totals and balances"
+    ]
+  },
+  {
+    title: "Split Expenses",
+    description: "Easily split bills among friends, roommates or travel groups",
+    image: "/assets/screenshots/split-expense.jpg",
+    features: [
+      "Equal or custom splits",
+      "Track who paid what",
+      "Settle debts easily"
+    ]
+  },
+  {
     title: "Send & Receive Money",
     description: "Transfer funds directly to friends using multiple payment methods",
-    image: "/app-payment.png",
+    image: "/assets/screenshots/payment.jpg",
     features: [
       "Multiple payment options",
       "Secure transactions",
@@ -51,28 +61,28 @@ const FeatureShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const constraintsRef = useRef<HTMLDivElement>(null);
-  
+
   const nextFeature = () => {
     setDirection(1);
     setActiveIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
   };
-  
+
   const prevFeature = () => {
     setDirection(-1);
     setActiveIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
   };
-  
+
   // Auto-rotate features
   useEffect(() => {
     const interval = setInterval(() => {
       nextFeature();
     }, 8000);
-    
+
     return () => clearInterval(interval);
   }, []);
-  
+
   const currentFeature = screenshots[activeIndex];
-  
+
   return (
     <section id="screenshots" className="py-24 bg-brand-darkGray relative overflow-hidden">
       {/* Background decoration */}
@@ -82,7 +92,7 @@ const FeatureShowcase = () => {
           <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-brand-lightTeal"></div>
         </div>
       </div>
-      
+
       <div className="section-container relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -94,9 +104,9 @@ const FeatureShowcase = () => {
             </p>
           </div>
         </ScrollReveal>
-        
+
         <div className="max-w-7xl mx-auto">
-          <div 
+          <div
             ref={constraintsRef}
             className="flex flex-col md:flex-row items-center gap-8 lg:gap-12 relative"
           >
@@ -116,7 +126,7 @@ const FeatureShowcase = () => {
                 <p className="text-lg text-gray-300 mb-6">
                   {currentFeature.description}
                 </p>
-                
+
                 <div className="space-y-3">
                   {currentFeature.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center">
@@ -125,7 +135,7 @@ const FeatureShowcase = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Navigation dots */}
                 <div className="flex justify-center md:justify-start space-x-2 mt-8">
                   {screenshots.map((_, idx) => (
@@ -135,18 +145,17 @@ const FeatureShowcase = () => {
                         setDirection(idx > activeIndex ? 1 : -1);
                         setActiveIndex(idx);
                       }}
-                      className={`h-3 w-3 rounded-full transition-all ${
-                        idx === activeIndex 
-                          ? "bg-brand-teal w-8" 
-                          : "bg-gray-600 hover:bg-gray-500"
-                      }`}
+                      className={`h-3 w-3 rounded-full transition-all ${idx === activeIndex
+                        ? "bg-brand-teal w-8"
+                        : "bg-gray-600 hover:bg-gray-500"
+                        }`}
                       aria-label={`Go to feature ${idx + 1}`}
                     ></button>
                   ))}
                 </div>
               </motion.div>
             </ScrollReveal>
-            
+
             {/* Phone Display with real screenshot */}
             <ScrollReveal className="md:w-1/2 order-1 md:order-2">
               <div className="relative h-[500px] md:h-[700px] flex items-center justify-center perspective">
@@ -155,35 +164,35 @@ const FeatureShowcase = () => {
                   dragConstraints={constraintsRef}
                   whileTap={{ cursor: "grabbing" }}
                   className="h-[450px] w-[250px] md:h-[600px] md:w-[320px] cursor-grab"
-                  style={{ 
+                  style={{
                     transformStyle: "preserve-3d",
                     transform: "rotateY(15deg) rotateX(5deg)"
                   }}
                 >
                   {/* Phone Frame */}
                   <div className="absolute inset-0 bg-brand-darkerGray rounded-[30px] p-2 shadow-xl"
-                    style={{ 
+                    style={{
                       transform: "translateZ(0px)",
                       transformStyle: "preserve-3d"
                     }}
                   >
                     {/* Phone Notch */}
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-6 bg-brand-darkerGray rounded-b-xl z-10"></div>
-                    
+
                     {/* Phone Screen with Image */}
                     <div className="w-full h-full rounded-[25px] overflow-hidden">
-                      <img 
+                      <img
                         src={currentFeature.image}
                         alt={currentFeature.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
                   </div>
-                  
+
                   {/* Decorative elements floating in 3D space */}
-                  <div 
+                  <div
                     className="absolute h-16 w-16 glass-card shadow-lg"
-                    style={{ 
+                    style={{
                       transform: "translateZ(40px) translateX(-100px) translateY(-80px) rotate(15deg)",
                     }}
                   >
@@ -192,10 +201,10 @@ const FeatureShowcase = () => {
                       <div className="h-5 w-8 bg-white/30 rounded-full"></div>
                     </div>
                   </div>
-                  
-                  <div 
+
+                  {/* <div
                     className="absolute h-20 w-20 glass-card shadow-lg"
-                    style={{ 
+                    style={{
                       transform: "translateZ(60px) translateX(100px) translateY(60px) rotate(-10deg)",
                     }}
                   >
@@ -203,11 +212,11 @@ const FeatureShowcase = () => {
                       <div className="h-8 w-8 rounded-full bg-white/20 mb-2"></div>
                       <div className="h-3 w-12 bg-white/40 rounded-full"></div>
                     </div>
-                  </div>
+                  </div> */}
                 </motion.div>
-                
+
                 {/* Reflection/shadow */}
-                <div 
+                <div
                   className="absolute bottom-20 w-40 h-10 rounded-full"
                   style={{
                     background: "radial-gradient(ellipse at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)",

@@ -58,7 +58,7 @@ const VideoDemo = () => {
                 className="w-full h-full object-cover"
                 poster="https://placehold.co/1920x1080/26A69A/FFFFFF/png?text=Budget+Breezer+Demo"
               >
-                <source src="public/assets/BUDGET-BREEZER - Made with Clipchamp.mp4" type="video/mp4" />
+                <source src="/assets/BUDGET-BREEZER - Made with Clipchamp.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               

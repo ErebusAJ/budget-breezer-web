@@ -23,12 +23,12 @@ const DownloadSection = () => {
 
           <div className="flex flex-col md:flex-row justify-center gap-5 mb-12">
             {/* Google Play Button */}
-            <Button className="bg-white text-brand-teal hover:bg-gray-100 flex items-center justify-center gap-3 py-6 rounded-xl">
+            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 flex items-center justify-center gap-3 py-6 rounded-xl cursor-not-allowed opacity-70">
               <div>
                 <PanelRight className="h-8 w-8" />
               </div>
               <div className="text-left">
-                <div className="text-xs">GET IT ON</div>
+                <div className="text-xs">Coming Soon TO</div>
                 <div className="text-xl font-semibold">Google Play</div>
               </div>
             </Button>

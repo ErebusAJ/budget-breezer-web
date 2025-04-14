@@ -4,7 +4,7 @@ import { ArrowDown } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 // App screenshot images
-const APP_SCREENSHOT = "/assets/landing.jpeg";
+const APP_SCREENSHOT = "/assets/screenshots/landing.jpg";
 
 const HeroSection = () => {
   const scrollToDownload = () => {
